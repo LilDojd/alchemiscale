@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>FahAlchemyComputeAPI — fah-alchemy.compute.api &#8212; fah-alchemy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FahAlchemyClientAPI — fah-alchemy.interface.api" href="interface.html" />
+    <link rel="prev" title="Reusable components for API services. — fah-alchemy.base.api" href="base.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <span class="target" id="module-fah_alchemy.compute.api"></span><section id="fahalchemycomputeapi-fah-alchemy-compute-api">
+<h1>FahAlchemyComputeAPI — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.compute.api</span></code><a class="headerlink" href="#fahalchemycomputeapi-fah-alchemy-compute-api" title="Permalink to this heading">¶</a></h1>
+</section>
+<span class="target" id="module-fah_alchemy.compute.client"></span><section id="client-for-interacting-with-compute-api-fah-alchemy-compute-client">
+<h1>Client for interacting with compute API. — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.compute.client</span></code><a class="headerlink" href="#client-for-interacting-with-compute-api-fah-alchemy-compute-client" title="Permalink to this heading">¶</a></h1>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.compute.client.FahAlchemyComputeClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.compute.client.</span></span><span class="sig-name descname"><span class="pre">FahAlchemyComputeClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_retries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.compute.client.FahAlchemyComputeClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="base.html#fah_alchemy.base.client.FahAlchemyBaseClient" title="fah_alchemy.base.client.FahAlchemyBaseClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">FahAlchemyBaseClient</span></code></a></p>
+<p>Client for compute service interaction with compute API service.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.client.FahAlchemyComputeClient.claim_taskqueue_tasks">
+<span class="sig-name descname"><span class="pre">claim_taskqueue_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">claimant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="storage.html#fah_alchemy.storage.models.Task" title="fah_alchemy.storage.models.Task"><span class="pre">Task</span></a></span></span><a class="headerlink" href="#fah_alchemy.compute.client.FahAlchemyComputeClient.claim_taskqueue_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Claim a <cite>Task</cite> from the specified <cite>TaskQueue</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.client.FahAlchemyComputeClient.get_taskqueue_tasks">
+<span class="sig-name descname"><span class="pre">get_taskqueue_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="storage.html#fah_alchemy.storage.models.Task" title="fah_alchemy.storage.models.Task"><span class="pre">Task</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fah_alchemy.compute.client.FahAlchemyComputeClient.get_taskqueue_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of <cite>Task`s for the given `TaskQueue</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.client.FahAlchemyComputeClient.query_taskqueues">
+<span class="sig-name descname"><span class="pre">query_taskqueues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scopes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Scope</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="storage.html#fah_alchemy.storage.models.TaskQueue" title="fah_alchemy.storage.models.TaskQueue"><span class="pre">TaskQueue</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fah_alchemy.compute.client.FahAlchemyComputeClient.query_taskqueues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all <cite>TaskQueue`s corresponding to given `Scope</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="fah_alchemy.compute.client.FahAlchemyComputeClientError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.compute.client.</span></span><span class="sig-name descname"><span class="pre">FahAlchemyComputeClientError</span></span><a class="headerlink" href="#fah_alchemy.compute.client.FahAlchemyComputeClientError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="base.html#fah_alchemy.base.client.FahAlchemyBaseClientError" title="fah_alchemy.base.client.FahAlchemyBaseClientError"><code class="xref py py-class docutils literal notranslate"><span class="pre">FahAlchemyBaseClientError</span></code></a></p>
+</dd></dl>
+
+<span class="target" id="module-fah_alchemy.compute.service"></span><section id="fahalchemycomputeservice-fah-alchemy-compute-service">
+<h1>FahAlchemyComputeService — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.compute.service</span></code><a class="headerlink" href="#fahalchemycomputeservice-fah-alchemy-compute-service" title="Permalink to this heading">¶</a></h1>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.AsynchronousComputeService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.compute.service.</span></span><span class="sig-name descname"><span class="pre">AsynchronousComputeService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.compute.service.AsynchronousComputeService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fah_alchemy.compute.service.SynchronousComputeService" title="fah_alchemy.compute.service.SynchronousComputeService"><code class="xref py py-class docutils literal notranslate"><span class="pre">SynchronousComputeService</span></code></a></p>
+<p>Asynchronous compute service.</p>
+<p>This service can be used in production cases, though it does not make use
+of <a class="reference external" href="mailto:Folding&#37;&#52;&#48;Home">Folding<span>&#64;</span>Home</a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.AsynchronousComputeService.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.compute.service.AsynchronousComputeService.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the service; will keep going until told to stop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.FahComputeService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.compute.service.</span></span><span class="sig-name descname"><span class="pre">FahComputeService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_store</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fah_work_server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.compute.service.FahComputeService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fah_alchemy.compute.service.AsynchronousComputeService" title="fah_alchemy.compute.service.AsynchronousComputeService"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsynchronousComputeService</span></code></a></p>
+<p><a class="reference external" href="mailto:Folding&#37;&#52;&#48;Home-based">Folding<span>&#64;</span>Home-based</a> compute service.</p>
+<p>This service is designed for production use with <a class="reference external" href="mailto:Folding&#37;&#52;&#48;Home">Folding<span>&#64;</span>Home</a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.FahComputeService.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.compute.service.FahComputeService.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the service; will keep going until told to stop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.InterruptableSleep">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.compute.service.</span></span><span class="sig-name descname"><span class="pre">InterruptableSleep</span></span><a class="headerlink" href="#fah_alchemy.compute.service.InterruptableSleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for sleeping, but interruptable</p>
+<p>This class uses threading Events to wake up from a sleep before the entire sleep
+duration has run. If the sleep is interrupted, then an SleepInterrupted exception is raised.</p>
+<p>This class is a functor, so an instance can be passed as the delay function to a python
+sched.scheduler</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.SleepInterrupted">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.compute.service.</span></span><span class="sig-name descname"><span class="pre">SleepInterrupted</span></span><a class="headerlink" href="#fah_alchemy.compute.service.SleepInterrupted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></p>
+<p>Exception class used to signal that an InterruptableSleep was interrupted</p>
+<p>This (like KeyboardInterrupt) derives from BaseException to prevent
+it from being handled with “except Exception”.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.SynchronousComputeService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.compute.service.</span></span><span class="sig-name descname"><span class="pre">SynchronousComputeService</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shared_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sleep_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heartbeat_frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Scope</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.compute.service.SynchronousComputeService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Fully synchronous compute service.</p>
+<p>This service is intended for use as a reference implementation, and for
+testing/debugging protocols.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.SynchronousComputeService.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#fah_alchemy.compute.service.SynchronousComputeService.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes given Task.</p>
+<p>Returns ScopedKey of ProtocolDAGResult following push to database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.SynchronousComputeService.get_tasks">
+<span class="sig-name descname"><span class="pre">get_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fah_alchemy.compute.service.SynchronousComputeService.get_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a Task to execute from compute API.</p>
+<p>Returns <cite>None</cite> if no Task was available matching service configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.SynchronousComputeService.heartbeat">
+<span class="sig-name descname"><span class="pre">heartbeat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.compute.service.SynchronousComputeService.heartbeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deliver a heartbeat to the compute API, indicating this service is still alive.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.SynchronousComputeService.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.compute.service.SynchronousComputeService.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the service.</p>
+<section id="parameters">
+<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>task_limit</dt><dd><p>Number of tasks to complete before exiting.
+If <cite>None</cite>, the service will continue until told to stop.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.compute.service.SynchronousComputeService.task_to_protocoldag">
+<span class="sig-name descname"><span class="pre">task_to_protocoldag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ProtocolDAG</span></span></span><a class="headerlink" href="#fah_alchemy.compute.service.SynchronousComputeService.task_to_protocoldag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a Task, produce a corresponding ProtocolDAG that can be executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">fah-alchemy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../API_docs.html">API Documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../API_docs.html">API Documentation</a><ul>
+      <li>Previous: <a href="base.html" title="previous chapter">Reusable components for API services. — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.base.api</span></code></a></li>
+      <li>Next: <a href="interface.html" title="next chapter">FahAlchemyClientAPI — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.interface.api</span></code></a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, "OpenFE and OpenFF developers".
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/documentation_pages/compute.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

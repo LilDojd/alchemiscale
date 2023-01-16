@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Data models for storage components — fah-alchemy.storage.models &#8212; fah-alchemy  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Alchemical strategy base class. — fah-alchemy.strategies.base" href="strategies.html" />
+    <link rel="prev" title="Security components for APIs. — fah-alchemy.security.auth" href="security.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <span class="target" id="module-fah_alchemy.storage.models"></span><section id="data-models-for-storage-components-fah-alchemy-storage-models">
+<h1>Data models for storage components — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.storage.models</span></code><a class="headerlink" href="#data-models-for-storage-components-fah-alchemy-storage-models" title="Permalink to this heading">¶</a></h1>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.storage.models.ComputeKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.models.</span></span><span class="sig-name descname"><span class="pre">ComputeKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.models.ComputeKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Unique identifier for FahAlchemyComputeService instances.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.storage.models.ObjectStoreRef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.models.</span></span><span class="sig-name descname"><span class="pre">ObjectStoreRef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.models.ObjectStoreRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GufeTokenizable</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.storage.models.Task">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.models.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.models.Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GufeTokenizable</span></code></p>
+<p>A Task that can be used to generate a <cite>ProtocolDAG</cite> on a
+compute node.</p>
+<section id="attributes">
+<h1>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>status</dt><dd><p>Status of the task.</p>
+</dd>
+<dt>priority</dt><dd><p>Priority of the task; 1 is highest, larger values indicate lower priority.</p>
+</dd>
+<dt>claim</dt><dd><p>Identifier of the compute service that has a claim on this task.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.storage.models.TaskArchive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.models.</span></span><span class="sig-name descname"><span class="pre">TaskArchive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.models.TaskArchive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GufeTokenizable</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.storage.models.TaskQueue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.models.</span></span><span class="sig-name descname"><span class="pre">TaskQueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.models.TaskQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GufeTokenizable</span></code></p>
+<section id="id1">
+<h1>Attributes<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<dl>
+<dt>network<span class="classifier">str</span></dt><dd><p>ScopedKey of the AlchemicalNetwork this TaskQueue corresponds to.
+Used to ensure that there is only one TaskQueue for a given
+AlchemicalNetwork using neo4j constraints.</p>
+</dd>
+<dt>weight<span class="classifier">float</span></dt><dd><p>Value between 0.0 and 1.0 giving the weight of this TaskQueue. This
+number is used to allocate attention to this TaskQueue relative to
+others by a ComputeService. TaskQueues with equal weight will be given
+equal attention; a TaskQueue with greater weight than another will
+receive more attention.</p>
+<p>Setting the weight to 0.0 will give the TaskQueue no attention,
+effectively disabling it.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.storage.models.TaskStatusEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.models.</span></span><span class="sig-name descname"><span class="pre">TaskStatusEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.models.TaskStatusEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+</dd></dl>
+
+<span class="target" id="module-fah_alchemy.storage.objectstore"></span><section id="s3-object-storage-fah-alchemy-storage-objectstore">
+<h1>S3 Object storage — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.storage.objectstore</span></code><a class="headerlink" href="#s3-object-storage-fah-alchemy-storage-objectstore" title="Permalink to this heading">¶</a></h1>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.storage.objectstore.S3ObjectStore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.objectstore.</span></span><span class="sig-name descname"><span class="pre">S3ObjectStore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">boto3.Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.objectstore.S3ObjectStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object storage for use with AWS S3.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.objectstore.S3ObjectStore.check">
+<span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.objectstore.S3ObjectStore.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check consistency of object store.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.objectstore.S3ObjectStore.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.objectstore.S3ObjectStore.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize object store.</p>
+<p>Creates bucket if it does not exist.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.objectstore.S3ObjectStore.iter_contents">
+<span class="sig-name descname"><span class="pre">iter_contents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.objectstore.S3ObjectStore.iter_contents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over the labels in this storage.</p>
+<section id="parameters">
+<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>prefix<span class="classifier">str</span></dt><dd><p>Only iterate over paths that start with the given prefix.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h1>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>Iterator[str] :</dt><dd><p>Contents of this storage, which may include items without
+metadata.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.objectstore.S3ObjectStore.pull_protocoldagresult">
+<span class="sig-name descname"><span class="pre">pull_protocoldagresult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectstoreref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fah_alchemy.storage.models.ObjectStoreRef" title="fah_alchemy.storage.models.ObjectStoreRef"><span class="pre">ObjectStoreRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gufe'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.objectstore.S3ObjectStore.pull_protocoldagresult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pull the <cite>ProtocolDAGResult</cite> corresponding to the given <cite>ObjectStoreRef</cite>.</p>
+<section id="id2">
+<h1>Parameters<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>objectstoreref</dt><dd><p>Reference to the serialized <cite>ProtocolDAGResult</cite> in the object store.</p>
+</dd>
+<dt>return_as<span class="classifier">[‘gufe’, ‘dict’, ‘json’]</span></dt><dd><p>Form in which to return result; this is provided to avoid
+unnecessary deserializations where desired.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h1>Returns<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>ProtocolDAGResult</dt><dd><p>The <cite>ProtocolDAGResult</cite> corresponding to the given <cite>ObjectStoreRef</cite>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.objectstore.S3ObjectStore.push_protocoldagresult">
+<span class="sig-name descname"><span class="pre">push_protocoldagresult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocoldagresult</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ProtocolDAGResult</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.objectstore.S3ObjectStore.push_protocoldagresult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Push given <cite>ProtocolDAGResult</cite> to this <cite>ObjectStore</cite>.</p>
+<section id="id4">
+<h1>Parameters<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>protocoldagresult</dt><dd><p>ProtocolDAGResult to store.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h1>Returns<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>ObjectStoreRef</dt><dd><p>Reference to the serialized <cite>ProtocolDAGResult</cite> in the object store.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.objectstore.S3ObjectStore.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.objectstore.S3ObjectStore.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all data from object store.</p>
+<p>Deletes all objects, including the bucket itself.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="fah_alchemy.storage.objectstore.S3ObjectStoreError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.objectstore.</span></span><span class="sig-name descname"><span class="pre">S3ObjectStoreError</span></span><a class="headerlink" href="#fah_alchemy.storage.objectstore.S3ObjectStoreError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fah_alchemy.storage.objectstore.get_s3os">
+<span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.objectstore.</span></span><span class="sig-name descname"><span class="pre">get_s3os</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="settings.html#fah_alchemy.settings.S3ObjectStoreSettings" title="fah_alchemy.settings.S3ObjectStoreSettings"><span class="pre">S3ObjectStoreSettings</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.objectstore.get_s3os" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function for getting an S3ObjectStore directly from settings.</p>
+</dd></dl>
+
+<span class="target" id="module-fah_alchemy.storage.statestore"></span><section id="node4js-state-storage-fah-alchemy-storage-statestore">
+<h1>Node4js state storage — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.storage.statestore</span></code><a class="headerlink" href="#node4js-state-storage-fah-alchemy-storage-statestore" title="Permalink to this heading">¶</a></h1>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.FahAlchemyStateStore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.statestore.</span></span><span class="sig-name descname"><span class="pre">FahAlchemyStateStore</span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.FahAlchemyStateStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4JStoreError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.statestore.</span></span><span class="sig-name descname"><span class="pre">Neo4JStoreError</span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4JStoreError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.statestore.</span></span><span class="sig-name descname"><span class="pre">Neo4jStore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">py2neo.Graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#fah_alchemy.storage.statestore.FahAlchemyStateStore" title="fah_alchemy.storage.statestore.FahAlchemyStateStore"><code class="xref py py-class docutils literal notranslate"><span class="pre">FahAlchemyStateStore</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.check">
+<span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check consistency of database.</p>
+<p>Will raise <cite>Neo4JStoreError</cite> if any state check fails.
+If no check fails, will return without any exception.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.claim_taskqueue_tasks">
+<span class="sig-name descname"><span class="pre">claim_taskqueue_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">claimant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.claim_taskqueue_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Claim a TaskQueue Task.</p>
+<p>This method will claim Tasks from a TaskQueue according to the following scheme:
+1. the first Task in the queue if its priority is equal to that of the highest priority Task.
+2. otherwise, the highest priority Task.</p>
+<p>If no Task is available, then <cite>None</cite> is given in its place.</p>
+<section id="id6">
+<h1>Parameters<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>count</dt><dd><p>Claim the given number of Tasks in a single transaction.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.create_credentialed_entity">
+<span class="sig-name descname"><span class="pre">create_credentialed_entity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CredentialedEntity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.create_credentialed_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new credentialed entity, such as a user or compute service.</p>
+<p>If an entity of this type with the same <cite>identifier</cite> already exists,
+then this will overwrite its properties, including credential.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.create_network">
+<span class="sig-name descname"><span class="pre">create_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AlchemicalNetwork</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Scope</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.create_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an <cite>AlchemicalNetwork</cite> to the target neo4j database, even if
+some of its components already exist in the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.create_task">
+<span class="sig-name descname"><span class="pre">create_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.create_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a compute Task to a Transformation.</p>
+<p>Note: this creates a compute Task, but does not add it to any TaskQueues.</p>
+<section id="id7">
+<h1>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>transformation</dt><dd><p>The Transformation to compute.</p>
+</dd>
+<dt>scope</dt><dd><p>The scope the Transformation is in; ignored if <cite>transformation</cite> is a ScopedKey.</p>
+</dd>
+<dt>extend_from</dt><dd><p>The ScopedKey of the Task to use as a starting point for this Task.
+Will use the <cite>ProtocolDAGResult</cite> from the given Task as the
+<cite>extend_from</cite> input for the Task’s eventual call to <cite>Protocol.create</cite>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.create_taskqueue">
+<span class="sig-name descname"><span class="pre">create_taskqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.create_taskqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a TaskQueue for the given AlchemicalNetwork.</p>
+<p>An AlchemicalNetwork can have only one associated TaskQueue.
+A TaskQueue is required to queue Tasks for a given AlchemicalNetwork.</p>
+<p>This method will only creat a TaskQueue for an AlchemicalNetwork if it
+doesn’t already exist; it will return the scoped key for the TaskQueue
+either way.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.delete_network">
+<span class="sig-name descname"><span class="pre">delete_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.delete_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete the given <cite>AlchemicalNetwork</cite> from the database.</p>
+<p>This will not remove any <cite>Transformation`s or `ChemicalSystem`s
+associated with the `AlchemicalNetwork</cite>, since these may be associated
+with other <cite>AlchemicalNetwork`s in the same `Scope</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.delete_task">
+<span class="sig-name descname"><span class="pre">delete_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#fah_alchemy.storage.models.Task" title="fah_alchemy.storage.models.Task"><span class="pre">Task</span></a></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.delete_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a compute Task from a Transformation.</p>
+<p>This will also remove the Task from all TaskQueues it is a part of.</p>
+<p>This method is intended for administrator use; generally Tasks should
+instead have their tasks set to ‘deleted’ and retained.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.delete_taskqueue">
+<span class="sig-name descname"><span class="pre">delete_taskqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.delete_taskqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a TaskQueue for the given AlchemicalNetwork.</p>
+<p>An AlchemicalNetwork can have only one associated TaskQueue.
+A TaskQueue is required to queue Tasks for a given AlchemicalNetwork.</p>
+<p>This method will only creat a TaskQueue for an AlchemicalNetwork if it
+doesn’t already exist; it will return the scoped key for the TaskQueue
+either way.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.dequeue_taskqueue_tasks">
+<span class="sig-name descname"><span class="pre">dequeue_taskqueue_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.dequeue_taskqueue_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a compute Task from the TaskQueue for a given AlchemicalNetwork.</p>
+<p>Note: the Task must be within the same scope as the AlchemicalNetwork.</p>
+<p>A given compute task can be represented in many AlchemicalNetwork
+queues, or none at all.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.get_credentialed_entity">
+<span class="sig-name descname"><span class="pre">get_credentialed_entity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">fah_alchemy.security.models.CredentialedEntity</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.get_credentialed_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new credentialed entity, such as a user or compute service.</p>
+<p>If an entity of this type with the same <cite>identifier</cite> already exists,
+then this will overwrite its properties, including credential.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.get_task_transformation">
+<span class="sig-name descname"><span class="pre">get_task_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Transformation</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ProtocolDAGResult</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.get_task_transformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <cite>Transformation</cite> and <cite>ProtocolDAGResult</cite> to extend from (if
+present) for the given <cite>Task</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.get_taskqueue">
+<span class="sig-name descname"><span class="pre">get_taskqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#fah_alchemy.storage.models.TaskQueue" title="fah_alchemy.storage.models.TaskQueue"><span class="pre">TaskQueue</span></a></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.get_taskqueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the TaskQueue for the given AlchemicalNetwork.</p>
+<section id="id8">
+<h1>Parameters<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>return_gufe</dt><dd><p>If True, return a <cite>TaskQueue</cite> instance.
+Otherwise, return a <cite>ScopedKey</cite>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.get_taskqueue_tasks">
+<span class="sig-name descname"><span class="pre">get_taskqueue_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#fah_alchemy.storage.models.Task" title="fah_alchemy.storage.models.Task"><span class="pre">Task</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.get_taskqueue_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of Tasks in the TaskQueue, in queued order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize database.</p>
+<p>Ensures that constraints and any other required structures are in place.
+Should be used on any Neo4j database prior to use for fah-alchemy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.query_chemicalsystems">
+<span class="sig-name descname"><span class="pre">query_chemicalsystems</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">~fah_alchemy.models.Scope</span> <span class="pre">=</span> <span class="pre">&lt;Scope('*-*-*')&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformations=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.query_chemicalsystems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query for <a href="#id9"><span class="problematic" id="id10">`</span></a>ChemicalSystem`s matching given attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.query_networks">
+<span class="sig-name descname"><span class="pre">query_networks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">~fah_alchemy.models.Scope</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;Scope('*-*-*')&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.query_networks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query for <a href="#id11"><span class="problematic" id="id12">`</span></a>AlchemicalNetwork`s matching given attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.query_taskqueues">
+<span class="sig-name descname"><span class="pre">query_taskqueues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">~fah_alchemy.models.Scope</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;Scope('*-*-*')&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#fah_alchemy.storage.models.TaskQueue" title="fah_alchemy.storage.models.TaskQueue"><span class="pre">TaskQueue</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.query_taskqueues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query for <a href="#id13"><span class="problematic" id="id14">`</span></a>TaskQueue`s matching the given criteria.</p>
+<section id="id15">
+<h1>Parameters<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>return_gufe</dt><dd><p>If True, return a dict with <cite>ScopedKey`s as keys, `TaskQueue</cite>
+instances as values. Otherwise, return a list of <a href="#id16"><span class="problematic" id="id17">`</span></a>ScopedKey`s.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.query_transformations">
+<span class="sig-name descname"><span class="pre">query_transformations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">~fah_alchemy.models.Scope</span> <span class="pre">=</span> <span class="pre">&lt;Scope('*-*-*')&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chemical_systems=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.query_transformations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query for <a href="#id18"><span class="problematic" id="id19">`</span></a>Transformation`s matching given attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.queue_taskqueue_tasks">
+<span class="sig-name descname"><span class="pre">queue_taskqueue_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.queue_taskqueue_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Tasks to the TaskQueue for a given AlchemicalNetwork.</p>
+<p>Note: the Tasks must be within the same scope as the AlchemicalNetwork,
+and must correspond to a Transformation in the AlchemicalNetwork.</p>
+<p>A given compute task can be represented in any number of
+AlchemicalNetwork queues, or none at all.</p>
+<p>If this Task has an EXTENDS relationship to another Task, that Task must
+be ‘complete’ before this Task can be added to <em>any</em> TaskQueue.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all data from database; undo all components in <cite>initialize</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.set_strategy">
+<span class="sig-name descname"><span class="pre">set_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="strategies.html#fah_alchemy.strategies.base.Strategy" title="fah_alchemy.strategies.base.Strategy"><span class="pre">Strategy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.set_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the compute Strategy for the given AlchemicalNetwork.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.set_task_result">
+<span class="sig-name descname"><span class="pre">set_task_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocoldagresult</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fah_alchemy.storage.models.ObjectStoreRef" title="fah_alchemy.storage.models.ObjectStoreRef"><span class="pre">ObjectStoreRef</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.set_task_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an <cite>ObjectStoreRef</cite> for the given <cite>Task</cite>.</p>
+<p>Does not store the <cite>ProtocolDAGResult</cite> for the task, but instead gives
+it an <cite>ObjectStoreRef</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.set_tasks">
+<span class="sig-name descname"><span class="pre">set_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#fah_alchemy.storage.models.Task" title="fah_alchemy.storage.models.Task"><span class="pre">Task</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#fah_alchemy.models.ScopedKey" title="fah_alchemy.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.set_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a fixed number of Tasks against the given Transformation if not
+already present.</p>
+<p>Note: Tasks created by this method are not added to any TaskQueues.</p>
+<section id="id20">
+<h1>Parameters<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>transformation</dt><dd><p>The Transformation to compute.</p>
+</dd>
+<dt>scope</dt><dd><p>The scope the Transformation is in; ignored if <cite>transformation</cite> is a ScopedKey.</p>
+</dd>
+<dt>extend_from</dt><dd><p>The Task to use as a starting point for this Task.
+Will use the <cite>ProtocolDAGResult</cite> from the given Task as the
+<cite>extend_from</cite> input for the Task’s eventual call to <cite>Protocol.create</cite>.</p>
+</dd>
+<dt>count</dt><dd><p>The total number of tasks that should exist corresponding to the
+specified <cite>transformation</cite>, <cite>scope</cite>, and <cite>extend_from</cite>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.transaction">
+<span class="sig-name descname"><span class="pre">transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readonly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_exceptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Transaction</span></span></span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.transaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context manager for a py2neo Transaction.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.get_n4js">
+<span class="sig-prename descclassname"><span class="pre">fah_alchemy.storage.statestore.</span></span><span class="sig-name descname"><span class="pre">get_n4js</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="settings.html#fah_alchemy.settings.Neo4jStoreSettings" title="fah_alchemy.settings.Neo4jStoreSettings"><span class="pre">Neo4jStoreSettings</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.get_n4js" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function for getting a Neo4jStore directly from settings.</p>
+</dd></dl>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">fah-alchemy</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../API_docs.html">API Documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../API_docs.html">API Documentation</a><ul>
+      <li>Previous: <a href="security.html" title="previous chapter">Security components for APIs. — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.security.auth</span></code></a></li>
+      <li>Next: <a href="strategies.html" title="next chapter">Alchemical strategy base class. — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.strategies.base</span></code></a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, "OpenFE and OpenFF developers".
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/documentation_pages/storage.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
