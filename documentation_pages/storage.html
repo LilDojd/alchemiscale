@@ -256,7 +256,7 @@ If no check fails, will return without any exception.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.create_credentialed_entity">
 <span class="sig-name descname"><span class="pre">create_credentialed_entity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CredentialedEntity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.create_credentialed_entity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new credentialed entity, such as a user or compute service.</p>
+<dd><p>Create a new credentialed entity, such as a user or compute identity.</p>
 <p>If an entity of this type with the same <cite>identifier</cite> already exists,
 then this will overwrite its properties, including credential.</p>
 </dd></dl>
@@ -340,9 +340,7 @@ queues, or none at all.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.get_credentialed_entity">
 <span class="sig-name descname"><span class="pre">get_credentialed_entity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">fah_alchemy.security.models.CredentialedEntity</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.get_credentialed_entity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new credentialed entity, such as a user or compute service.</p>
-<p>If an entity of this type with the same <cite>identifier</cite> already exists,
-then this will overwrite its properties, including credential.</p>
+<dd><p>Get an existing credentialed entity, such as a user or compute identity.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -378,6 +376,12 @@ Otherwise, return a <cite>ScopedKey</cite>.</p>
 <dd><p>Initialize database.</p>
 <p>Ensures that constraints and any other required structures are in place.
 Should be used on any Neo4j database prior to use for fah-alchemy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.list_credentialed_entities">
+<span class="sig-name descname"><span class="pre">list_credentialed_entities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">fah_alchemy.security.models.CredentialedEntity</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.list_credentialed_entities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an existing credentialed entity, such as a user or compute identity.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -422,6 +426,12 @@ and must correspond to a Transformation in the AlchemicalNetwork.</p>
 AlchemicalNetwork queues, or none at all.</p>
 <p>If this Task has an EXTENDS relationship to another Task, that Task must
 be ‘complete’ before this Task can be added to <em>any</em> TaskQueue.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fah_alchemy.storage.statestore.Neo4jStore.remove_credentialed_identity">
+<span class="sig-name descname"><span class="pre">remove_credentialed_identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">fah_alchemy.security.models.CredentialedEntity</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.storage.statestore.Neo4jStore.remove_credentialed_identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a credentialed entity, such as a user or compute identity.</p>
 </dd></dl>
 
 <dl class="py method">
