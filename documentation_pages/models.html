@@ -142,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cli.html#fah_alchemy.cli.envvar_dictify"><code class="docutils literal notranslate"><span class="pre">envvar_dictify()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli.html#fah_alchemy.cli.get_settings_from_options"><code class="docutils literal notranslate"><span class="pre">get_settings_from_options()</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Data models — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.models</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fah_alchemy.models.InvalidScopeError"><code class="docutils literal notranslate"><span class="pre">InvalidScopeError</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fah_alchemy.models.ScopedKey"><code class="docutils literal notranslate"><span class="pre">ScopedKey</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html">Settings — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.settings</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="settings.html#fah_alchemy.settings.APISettings"><code class="docutils literal notranslate"><span class="pre">APISettings</span></code></a></li>
@@ -225,11 +226,19 @@
   <span class="target" id="module-fah_alchemy.models"></span><section id="data-models-fah-alchemy-models">
 <h1>Data models — <code class="xref py py-mod docutils literal notranslate"><span class="pre">fah-alchemy.models</span></code><a class="headerlink" href="#data-models-fah-alchemy-models" title="Permalink to this heading">¶</a></h1>
 </section>
+<dl class="py exception">
+<dt class="sig sig-object py" id="fah_alchemy.models.InvalidScopeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.models.</span></span><span class="sig-name descname"><span class="pre">InvalidScopeError</span></span><a class="headerlink" href="#fah_alchemy.models.InvalidScopeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="fah_alchemy.models.ScopedKey">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fah_alchemy.models.</span></span><span class="sig-name descname"><span class="pre">ScopedKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gufe_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">GufeKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">org</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">campaign</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">project</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fah_alchemy.models.ScopedKey" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
 <p>Unique identifier for GufeTokenizables in state store.</p>
+<p>For this object, <cite>org</cite>, <cite>campaign</cite>, and <cite>project</cite> cannot contain wildcards.
+In other words, the Scope of a ScopedKey must be <em>specific</em>.</p>
 </dd></dl>
 
 
