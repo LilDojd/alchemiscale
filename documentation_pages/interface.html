@@ -106,8 +106,19 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">AlchemiscaleClientAPI — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.interface.api</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#client-for-interacting-with-user-facing-api-alchemiscale-interface-client">Client for interacting with user-facing API. — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.interface.client</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.action_tasks"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.action_tasks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.cancel_tasks"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.cancel_tasks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.check_exists"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.check_exists()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.create_network"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.create_network()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.get_transformation_result"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.get_transformation_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.create_tasks"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.create_tasks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.get_scoped_key"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.get_scoped_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.get_task_failures"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.get_task_failures()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.get_task_results"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.get_task_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.get_tasks"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.get_tasks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.get_transformation_failures"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.get_transformation_failures()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.get_transformation_results"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.get_transformation_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.query_networks"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.query_networks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClient.set_strategy"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClient.set_strategy()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.interface.client.AlchemiscaleClientError"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleClientError</span></code></a></li>
@@ -120,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Data models for storage components — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.storage.models</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html#alchemiscale.storage.models.ComputeKey"><code class="docutils literal notranslate"><span class="pre">ComputeKey</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html#alchemiscale.storage.models.ObjectStoreRef"><code class="docutils literal notranslate"><span class="pre">ObjectStoreRef</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#alchemiscale.storage.models.ProtocolDAGResultRef"><code class="docutils literal notranslate"><span class="pre">ProtocolDAGResultRef</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html#alchemiscale.storage.models.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html#alchemiscale.storage.models.TaskArchive"><code class="docutils literal notranslate"><span class="pre">TaskArchive</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html#alchemiscale.storage.models.TaskQueue"><code class="docutils literal notranslate"><span class="pre">TaskQueue</span></code></a></li>
@@ -231,24 +243,182 @@
 <dd><p>Bases: <a class="reference internal" href="base.html#alchemiscale.base.client.AlchemiscaleBaseClient" title="alchemiscale.base.client.AlchemiscaleBaseClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlchemiscaleBaseClient</span></code></a></p>
 <p>Client for user interaction with API service.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.create_network">
-<span class="sig-name descname"><span class="pre">create_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AlchemicalNetwork</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Scope</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.create_network" title="Permalink to this definition">¶</a></dt>
-<dd><p>Submit an AlchemicalNetwork along with a compute Strategy.</p>
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.action_tasks">
+<span class="sig-name descname"><span class="pre">action_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.action_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Action Tasks for execution via the given AlchemicalNetwork’s
+TaskQueue.</p>
+<dl class="simple">
+<dt>A Task cannot be actioned:</dt><dd><ul class="simple">
+<li><p>to an AlchemicalNetwork in a different Scope.</p></li>
+<li><p>if it extends another Task that is not complete.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tasks</strong> – Task ScopedKeys to action for execution.</p></li>
+<li><p><strong>network</strong> – The AlchemicalNetwork ScopedKey to action the Tasks for.
+The Tasks will be added to the network’s associated TaskQueue.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ScopedKeys for Tasks actioned, in the same order as given as
+<cite>tasks</cite> on input. If a Task couldn’t be actioned, then <cite>None</cite> will
+be returned in its place.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Optional[<a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey">ScopedKey</a>]]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.get_transformation_result">
-<span class="sig-name descname"><span class="pre">get_transformation_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_protocoldagresults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ProtocolResult</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ProtocolDAGResult</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.get_transformation_result" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get <cite>ProtocolResult</cite> for the given <cite>Transformation</cite>.</p>
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.cancel_tasks">
+<span class="sig-name descname"><span class="pre">cancel_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.cancel_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel Tasks for execution via the given AlchemicalNetwork’s
+TaskQueue.</p>
+<dl class="simple">
+<dt>A Task cannot be canceled:</dt><dd><ul class="simple">
+<li><p>if it is not present in the AlchemicalNetwork’s TaskQueue.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tasks</strong> – Task ScopedKeys to cancel for execution.</p></li>
+<li><p><strong>network</strong> – The AlchemicalNetwork ScopedKey to cancel the Tasks for.
+The Tasks will be removed from the network’s associated TaskQueue.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ScopedKeys for Tasks canceled, in the same order as given as
+<cite>tasks</cite> on input. If a Task couldn’t be canceled, then <cite>None</cite> will
+be returned in its place.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Optional[<a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey">ScopedKey</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.check_exists">
+<span class="sig-name descname"><span class="pre">check_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scoped_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Scope</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.check_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <cite>True</cite> if the given ScopedKey represents an object in the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.create_network">
+<span class="sig-name descname"><span class="pre">create_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AlchemicalNetwork</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Scope</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.create_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit an AlchemicalNetwork.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.create_tasks">
+<span class="sig-name descname"><span class="pre">create_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extends</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.create_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create Tasks for the given Transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>transformation</strong> – The ScopedKey of the Transformation to create Tasks for.</p></li>
+<li><p><strong>extends</strong> – The ScopedKey for the Task to use as a starting point for the Tasks created.</p></li>
+<li><p><strong>count</strong> – The number of new Tasks to create.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list giving the ScopedKeys of the new Tasks created.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey">ScopedKey</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.get_scoped_key">
+<span class="sig-name descname"><span class="pre">get_scoped_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">GufeTokenizable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Scope</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.get_scoped_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given any gufe object and a fully-specified Scope, return corresponding ScopedKey.</p>
+<p>This method does not check that this ScopedKey is represented in the database.
+It is only a convenience for properly constructing a ScopedKey from a
+gufe object and a Scope.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.get_task_failures">
+<span class="sig-name descname"><span class="pre">get_task_failures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.get_task_failures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get failed <cite>ProtocolDAGResult`s for the given `Task</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.get_task_results">
+<span class="sig-name descname"><span class="pre">get_task_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.get_task_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get successful <cite>ProtocolDAGResult`s for the given `Task</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.get_tasks">
+<span class="sig-name descname"><span class="pre">get_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extends</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_as</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'list'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DiGraph</span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.get_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Tasks associated with the given Transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>transformation</strong> – The ScopedKey of the Transformation to get Tasks for.</p></li>
+<li><p><strong>extends</strong> – If given, only return Tasks that extend from the given Task’s ScopedKey.
+This will also give any Tasks that extend from those Tasks, recursively.
+Using this keyword argument amounts to choosing the tree of Tasks that
+extend from the given Task.</p></li>
+<li><p><strong>return_as</strong> (<em>[</em><em>'list'</em><em>, </em><em>'graph'</em><em>]</em>) – If ‘list’, Tasks will be returned in no particular order.
+If <cite>graph</cite>, Tasks will be returned in a <cite>networkx.DiGraph</cite>, with a
+directed edge pointing from a given Task to the Task it extends.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.get_transformation_failures">
+<span class="sig-name descname"><span class="pre">get_transformation_failures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ProtocolResult</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ProtocolDAGResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.get_transformation_failures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get failed <cite>ProtocolDAGResult`s for the given `Transformation</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>transformation</strong> – The <cite>ScopedKey</cite> of the <cite>Transformation</cite> to retrieve failures for.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.get_transformation_results">
+<span class="sig-name descname"><span class="pre">get_transformation_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_protocoldagresults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ProtocolResult</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ProtocolDAGResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.get_transformation_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a <cite>ProtocolResult</cite> for the given <cite>Transformation</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>transformation</strong> – The <cite>ScopedKey</cite> of the <cite>Transformation</cite> to retrieve results for.</p></li>
 <li><p><strong>return_protocoldagresults</strong> – If <cite>True</cite>, return the raw <cite>ProtocolDAGResult`s instead of returning
-a processed `ProtocolResult</cite>.</p></li>
+a processed `ProtocolResult</cite>. Only successful <a href="#id1"><span class="problematic" id="id2">`</span></a>ProtocolDAGResult`s
+are returned.</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.query_networks">
+<span class="sig-name descname"><span class="pre">query_networks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Scope</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">AlchemicalNetwork</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.query_networks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query for AlchemicalNetworks, optionally by name or Scope.</p>
+<p>Calling this method with no query arguments will return ScopedKeys for
+all AlchemicalNetworks that are within the Scopes this user has access
+to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.set_strategy">
+<span class="sig-name descname"><span class="pre">set_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="strategies.html#alchemiscale.strategies.base.Strategy" title="alchemiscale.strategies.base.Strategy"><span class="pre">Strategy</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.set_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the Strategy for evaluating the given AlchemicalNetwork.</p>
+<p>The Strategy will be applied to create and action tasks for the
+Transformations in the AlchemicalNetwork without user interaction.</p>
 </dd></dl>
 
 </dd></dl>

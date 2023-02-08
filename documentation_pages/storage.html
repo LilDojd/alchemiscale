@@ -116,10 +116,12 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Data models for storage components — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.storage.models</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.ComputeKey"><code class="docutils literal notranslate"><span class="pre">ComputeKey</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.ObjectStoreRef"><code class="docutils literal notranslate"><span class="pre">ObjectStoreRef</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.ProtocolDAGResultRef"><code class="docutils literal notranslate"><span class="pre">ProtocolDAGResultRef</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.models.Task.status"><code class="docutils literal notranslate"><span class="pre">Task.status</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.models.Task.priority"><code class="docutils literal notranslate"><span class="pre">Task.priority</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.models.Task.claim"><code class="docutils literal notranslate"><span class="pre">Task.claim</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.models.Task.datetime_created"><code class="docutils literal notranslate"><span class="pre">Task.datetime_created</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.TaskArchive"><code class="docutils literal notranslate"><span class="pre">TaskArchive</span></code></a></li>
@@ -145,7 +147,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.statestore.AlchemiscaleStateStore"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleStateStore</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4JStoreError"><code class="docutils literal notranslate"><span class="pre">Neo4JStoreError</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore"><code class="docutils literal notranslate"><span class="pre">Neo4jStore</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.action_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.action_tasks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.add_scope"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.add_scope()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.cancel_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.cancel_tasks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.check"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.check()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.claim_taskqueue_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.claim_taskqueue_tasks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.create_credentialed_entity"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.create_credentialed_entity()</span></code></a></li>
@@ -155,11 +159,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.delete_network"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.delete_network()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.delete_task"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.delete_task()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.delete_taskqueue"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.delete_taskqueue()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.dequeue_taskqueue_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.dequeue_taskqueue_tasks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_credentialed_entity"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_credentialed_entity()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_task_transformation"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_task_transformation()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_taskqueue"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_taskqueue()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_taskqueue_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_taskqueue_tasks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_tasks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.initialize"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.initialize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.list_credentialed_entities"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.list_credentialed_entities()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.list_scopes"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.list_scopes()</span></code></a></li>
@@ -167,7 +171,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.query_networks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.query_networks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.query_taskqueues"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.query_taskqueues()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.query_transformations"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.query_transformations()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.queue_taskqueue_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.queue_taskqueue_tasks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.remove_credentialed_identity"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.remove_credentialed_identity()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.remove_scope"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.remove_scope()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.reset"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.reset()</span></code></a></li>
@@ -281,6 +284,12 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="alchemiscale.storage.models.ProtocolDAGResultRef">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.models.</span></span><span class="sig-name descname"><span class="pre">ProtocolDAGResultRef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.models.ProtocolDAGResultRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#alchemiscale.storage.models.ObjectStoreRef" title="alchemiscale.storage.models.ObjectStoreRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectStoreRef</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="alchemiscale.storage.models.Task">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.models.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.models.Task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">GufeTokenizable</span></code></p>
@@ -315,6 +324,16 @@ compute node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="alchemiscale.storage.models.Task.datetime_created">
+<span class="sig-name descname"><span class="pre">datetime_created</span></span><a class="headerlink" href="#alchemiscale.storage.models.Task.datetime_created" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>datetime.datetime | None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -375,7 +394,7 @@ effectively disabling it.</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="alchemiscale.storage.objectstore.S3ObjectStore">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.objectstore.</span></span><span class="sig-name descname"><span class="pre">S3ObjectStore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">boto3.Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.objectstore.S3ObjectStore" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.objectstore.</span></span><span class="sig-name descname"><span class="pre">S3ObjectStore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">boto3.Session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoint_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.objectstore.S3ObjectStore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Object storage for use with AWS S3.</p>
 <dl class="py method">
@@ -411,18 +430,18 @@ metadata.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.objectstore.S3ObjectStore.pull_protocoldagresult">
-<span class="sig-name descname"><span class="pre">pull_protocoldagresult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectstoreref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.ObjectStoreRef" title="alchemiscale.storage.models.ObjectStoreRef"><span class="pre">ObjectStoreRef</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gufe'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.objectstore.S3ObjectStore.pull_protocoldagresult" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pull the <cite>ProtocolDAGResult</cite> corresponding to the given <cite>ObjectStoreRef</cite>.</p>
+<span class="sig-name descname"><span class="pre">pull_protocoldagresult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocoldagresult</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gufe'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">success</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ProtocolDAGResult</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></span><a class="headerlink" href="#alchemiscale.storage.objectstore.S3ObjectStore.pull_protocoldagresult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pull the <cite>ProtocolDAGResult</cite> corresponding to the given <cite>ProtocolDAGResultRef</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>objectstoreref</strong> – Reference to the serialized <cite>ProtocolDAGResult</cite> in the object store.</p></li>
+<li><p><strong>protocoldagresult</strong> – ScopedKey for ProtocolDAGResult in the object store.</p></li>
 <li><p><strong>return_as</strong> (<em>[</em><em>'gufe'</em><em>, </em><em>'dict'</em><em>, </em><em>'json'</em><em>]</em>) – Form in which to return result; this is provided to avoid
 unnecessary deserializations where desired.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The <cite>ProtocolDAGResult</cite> corresponding to the given <cite>ObjectStoreRef</cite>.</p>
+<dd class="field-even"><p>The ProtocolDAGResult corresponding to the given <cite>ProtocolDAGResultRef</cite>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>ProtocolDAGResult</p>
@@ -432,17 +451,20 @@ unnecessary deserializations where desired.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.objectstore.S3ObjectStore.push_protocoldagresult">
-<span class="sig-name descname"><span class="pre">push_protocoldagresult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocoldagresult</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ProtocolDAGResult</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.objectstore.S3ObjectStore.push_protocoldagresult" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">push_protocoldagresult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocoldagresult</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ProtocolDAGResult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Scope</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#alchemiscale.storage.models.ProtocolDAGResultRef" title="alchemiscale.storage.models.ProtocolDAGResultRef"><span class="pre">ProtocolDAGResultRef</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.objectstore.S3ObjectStore.push_protocoldagresult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push given <cite>ProtocolDAGResult</cite> to this <cite>ObjectStore</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>protocoldagresult</strong> – ProtocolDAGResult to store.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocoldagresult</strong> – ProtocolDAGResult to store.</p></li>
+<li><p><strong>scope</strong> – Scope to store ProtocolDAGResult under.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Reference to the serialized <cite>ProtocolDAGResult</cite> in the object store.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#alchemiscale.storage.models.ObjectStoreRef" title="alchemiscale.storage.models.ObjectStoreRef">ObjectStoreRef</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#alchemiscale.storage.models.ProtocolDAGResultRef" title="alchemiscale.storage.models.ProtocolDAGResultRef">ProtocolDAGResultRef</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -464,7 +486,7 @@ unnecessary deserializations where desired.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="alchemiscale.storage.objectstore.get_s3os">
-<span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.objectstore.</span></span><span class="sig-name descname"><span class="pre">get_s3os</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="settings.html#alchemiscale.settings.S3ObjectStoreSettings" title="alchemiscale.settings.S3ObjectStoreSettings"><span class="pre">S3ObjectStoreSettings</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.objectstore.get_s3os" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.objectstore.</span></span><span class="sig-name descname"><span class="pre">get_s3os</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="settings.html#alchemiscale.settings.S3ObjectStoreSettings" title="alchemiscale.settings.S3ObjectStoreSettings"><span class="pre">S3ObjectStoreSettings</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoint_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#alchemiscale.storage.objectstore.S3ObjectStore" title="alchemiscale.storage.objectstore.S3ObjectStore"><span class="pre">S3ObjectStore</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.objectstore.get_s3os" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenience function for getting an S3ObjectStore directly from settings.</p>
 </dd></dl>
 
@@ -488,9 +510,30 @@ unnecessary deserializations where desired.</p></li>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.statestore.</span></span><span class="sig-name descname"><span class="pre">Neo4jStore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">py2neo.Graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#alchemiscale.storage.statestore.AlchemiscaleStateStore" title="alchemiscale.storage.statestore.AlchemiscaleStateStore"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlchemiscaleStateStore</span></code></a></p>
 <dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.action_tasks">
+<span class="sig-name descname"><span class="pre">action_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.action_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Tasks to the TaskQueue for a given AlchemicalNetwork.</p>
+<p>Note: the Tasks must be within the same scope as the AlchemicalNetwork,
+and must correspond to a Transformation in the AlchemicalNetwork.</p>
+<p>A given compute task can be represented in any number of
+AlchemicalNetwork queues, or none at all.</p>
+<p>If this Task has an EXTENDS relationship to another Task, that Task must
+be ‘complete’ before this Task can be added to <em>any</em> TaskQueue.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.add_scope">
 <span class="sig-name descname"><span class="pre">add_scope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">alchemiscale.security.models.CredentialedEntity</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Scope</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.add_scope" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a scope to the given entity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.cancel_tasks">
+<span class="sig-name descname"><span class="pre">cancel_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.cancel_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove Tasks from the TaskQueue for a given AlchemicalNetwork.</p>
+<p>Note: Tasks must be within the same scope as the AlchemicalNetwork.</p>
+<p>A given Task can be represented in many AlchemicalNetwork queues, or
+none at all.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -533,7 +576,7 @@ some of its components already exist in the database.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.create_task">
-<span class="sig-name descname"><span class="pre">create_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.create_task" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">create_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extends</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">creator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.create_task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a compute Task to a Transformation.</p>
 <p>Note: this creates a compute Task, but does not add it to any TaskQueues.</p>
 <dl class="field-list simple">
@@ -541,9 +584,9 @@ some of its components already exist in the database.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>transformation</strong> – The Transformation to compute.</p></li>
 <li><p><strong>scope</strong> – The scope the Transformation is in; ignored if <cite>transformation</cite> is a ScopedKey.</p></li>
-<li><p><strong>extend_from</strong> – The ScopedKey of the Task to use as a starting point for this Task.
+<li><p><strong>extends</strong> – The ScopedKey of the Task to use as a starting point for this Task.
 Will use the <cite>ProtocolDAGResult</cite> from the given Task as the
-<cite>extend_from</cite> input for the Task’s eventual call to <cite>Protocol.create</cite>.</p></li>
+<cite>extends</cite> input for the Task’s eventual call to <cite>Protocol.create</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -590,15 +633,6 @@ either way.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.dequeue_taskqueue_tasks">
-<span class="sig-name descname"><span class="pre">dequeue_taskqueue_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.dequeue_taskqueue_tasks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove a compute Task from the TaskQueue for a given AlchemicalNetwork.</p>
-<p>Note: the Task must be within the same scope as the AlchemicalNetwork.</p>
-<p>A given compute task can be represented in many AlchemicalNetwork
-queues, or none at all.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.get_credentialed_entity">
 <span class="sig-name descname"><span class="pre">get_credentialed_entity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">alchemiscale.security.models.CredentialedEntity</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.get_credentialed_entity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get an existing credentialed entity, such as a user or compute identity.</p>
@@ -606,8 +640,8 @@ queues, or none at all.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.get_task_transformation">
-<span class="sig-name descname"><span class="pre">get_task_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Transformation</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ProtocolDAGResult</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.get_task_transformation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the <cite>Transformation</cite> and <cite>ProtocolDAGResult</cite> to extend from (if
+<span class="sig-name descname"><span class="pre">get_task_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Transformation</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#alchemiscale.storage.models.ProtocolDAGResultRef" title="alchemiscale.storage.models.ProtocolDAGResultRef"><span class="pre">ProtocolDAGResultRef</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.get_task_transformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <cite>Transformation</cite> and <cite>ProtocolDAGResultRef</cite> to extend from (if
 present) for the given <cite>Task</cite>.</p>
 </dd></dl>
 
@@ -627,6 +661,25 @@ Otherwise, return a <cite>ScopedKey</cite>.</p>
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.get_taskqueue_tasks">
 <span class="sig-name descname"><span class="pre">get_taskqueue_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#alchemiscale.storage.models.Task" title="alchemiscale.storage.models.Task"><span class="pre">Task</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.get_taskqueue_tasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of Tasks in the TaskQueue, in queued order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.get_tasks">
+<span class="sig-name descname"><span class="pre">get_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extends</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_as</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'list'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.get_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all Tasks that perform the given Transformation.</p>
+<p>If a Task ScopedKey is given for <cite>extends</cite>, then only those Tasks
+that follow via any number of EXTENDS relationships will be returned.</p>
+<p><cite>return_as</cite> takes either <cite>list</cite> or <cite>graph</cite> as input.
+<cite>graph</cite> will yield a dict mapping each Task’s ScopedKey (as keys) to
+the Task ScopedKey it extends (as values).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>transformation</strong> – ScopedKey of the Transformation to retrieve Tasks for.</p></li>
+<li><p><strong>extends</strong> – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -680,18 +733,6 @@ instances as values. Otherwise, return a list of <a href="#id7"><span class="pro
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.queue_taskqueue_tasks">
-<span class="sig-name descname"><span class="pre">queue_taskqueue_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskqueue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.queue_taskqueue_tasks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add Tasks to the TaskQueue for a given AlchemicalNetwork.</p>
-<p>Note: the Tasks must be within the same scope as the AlchemicalNetwork,
-and must correspond to a Transformation in the AlchemicalNetwork.</p>
-<p>A given compute task can be represented in any number of
-AlchemicalNetwork queues, or none at all.</p>
-<p>If this Task has an EXTENDS relationship to another Task, that Task must
-be ‘complete’ before this Task can be added to <em>any</em> TaskQueue.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.remove_credentialed_identity">
 <span class="sig-name descname"><span class="pre">remove_credentialed_identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">type</span><span class="p"><span class="pre">[</span></span><span class="pre">alchemiscale.security.models.CredentialedEntity</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.remove_credentialed_identity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove a credentialed entity, such as a user or compute identity.</p>
@@ -717,15 +758,13 @@ be ‘complete’ before this Task can be added to <em>any</em> TaskQueue.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.set_task_result">
-<span class="sig-name descname"><span class="pre">set_task_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocoldagresult</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.ObjectStoreRef" title="alchemiscale.storage.models.ObjectStoreRef"><span class="pre">ObjectStoreRef</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.set_task_result" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set an <cite>ObjectStoreRef</cite> for the given <cite>Task</cite>.</p>
-<p>Does not store the <cite>ProtocolDAGResult</cite> for the task, but instead gives
-it an <cite>ObjectStoreRef</cite>.</p>
+<span class="sig-name descname"><span class="pre">set_task_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocoldagresultref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.ProtocolDAGResultRef" title="alchemiscale.storage.models.ProtocolDAGResultRef"><span class="pre">ProtocolDAGResultRef</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.set_task_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a <cite>ProtocolDAGResultRef</cite> pointing to a <cite>ProtocolDAGResult</cite> for the given <cite>Task</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.set_tasks">
-<span class="sig-name descname"><span class="pre">set_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend_from</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.Task" title="alchemiscale.storage.models.Task"><span class="pre">Task</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.set_tasks" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">extends</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.Task" title="alchemiscale.storage.models.Task"><span class="pre">Task</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.set_tasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a fixed number of Tasks against the given Transformation if not
 already present.</p>
 <p>Note: Tasks created by this method are not added to any TaskQueues.</p>
@@ -734,11 +773,11 @@ already present.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>transformation</strong> – The Transformation to compute.</p></li>
 <li><p><strong>scope</strong> – The scope the Transformation is in; ignored if <cite>transformation</cite> is a ScopedKey.</p></li>
-<li><p><strong>extend_from</strong> – The Task to use as a starting point for this Task.
+<li><p><strong>extends</strong> – The Task to use as a starting point for this Task.
 Will use the <cite>ProtocolDAGResult</cite> from the given Task as the
-<cite>extend_from</cite> input for the Task’s eventual call to <cite>Protocol.create</cite>.</p></li>
+<cite>extends</cite> input for the Task’s eventual call to <cite>Protocol.create</cite>.</p></li>
 <li><p><strong>count</strong> – The total number of tasks that should exist corresponding to the
-specified <cite>transformation</cite>, <cite>scope</cite>, and <cite>extend_from</cite>.</p></li>
+specified <cite>transformation</cite>, <cite>scope</cite>, and <cite>extends</cite>.</p></li>
 </ul>
 </dd>
 </dl>
