@@ -439,8 +439,6 @@ unnecessary deserializations where desired.</p></li>
 and must correspond to a Transformation in the AlchemicalNetwork.</p>
 <p>A given compute task can be represented in any number of
 AlchemicalNetwork TaskHubs, or none at all.</p>
-<p>If this Task has an EXTENDS relationship to another Task, that Task must
-be ‘complete’ before this Task can be added to <em>any</em> TaskHub.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -470,14 +468,24 @@ If no check fails, will return without any exception.</p>
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.claim_taskhub_tasks">
 <span class="sig-name descname"><span class="pre">claim_taskhub_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskhub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">claimant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.claim_taskhub_tasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Claim a TaskHub Task.</p>
-<p>This method will claim Tasks from a TaskHub according to the following scheme:
-1. It will select Tasks with the highest priority.
-2. Of those, a Task will be claimed stochastically based on the <cite>weight</cite> of its ACTIONS relationship on the TaskHub.
-3. Repeat steps 1 and 2. until <cite>count</cite> Tasks have been claimed.</p>
-<p>If no Task is available, then <cite>None</cite> is given in its place.</p>
+<p>This method will claim Tasks from a TaskHub according to the following process:
+1. <cite>waiting</cite> Tasks with the highest priority are selected for consideration.
+2. Tasks with an <cite>EXTENDS</cite> relationship to an incomplete Task are dropped</p>
+<blockquote>
+<div><p>from consideration.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Of those that remain, a Task is claimed stochastically based on the
+<cite>weight</cite> of its ACTIONS relationship with the TaskHub.</p></li>
+</ol>
+<p>This process is repeated until <cite>count</cite> Tasks have been claimed.
+If no Task is available, then <cite>None</cite> is given in its place.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>count</strong> – Claim the given number of Tasks in a single transaction.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>claimant</strong> – Unique identifier for the entity claiming the Tasks for execution.</p></li>
+<li><p><strong>count</strong> – Claim the given number of Tasks in a single transaction.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
