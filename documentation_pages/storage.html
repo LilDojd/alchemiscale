@@ -56,7 +56,6 @@
 <li class="toctree-l2"><a class="reference internal" href="compute.html#alchemiscale.compute.client.AlchemiscaleComputeClient"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleComputeClient</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute.html#alchemiscale.compute.client.AlchemiscaleComputeClientError"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleComputeClientError</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute.html#alchemiscalecomputeservice-alchemiscale-compute-service">AlchemiscaleComputeService — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.compute.service</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="compute.html#alchemiscale.compute.service.AlchemiscaleComputeService"><code class="docutils literal notranslate"><span class="pre">AlchemiscaleComputeService</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute.html#alchemiscale.compute.service.AsynchronousComputeService"><code class="docutils literal notranslate"><span class="pre">AsynchronousComputeService</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute.html#alchemiscale.compute.service.InterruptableSleep"><code class="docutils literal notranslate"><span class="pre">InterruptableSleep</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute.html#alchemiscale.compute.service.SleepInterrupted"><code class="docutils literal notranslate"><span class="pre">SleepInterrupted</span></code></a></li>
@@ -69,7 +68,8 @@
 <li class="toctree-l2"><a class="reference internal" href="security.html#alchemiscale.security.auth.AuthenticationError"><code class="docutils literal notranslate"><span class="pre">AuthenticationError</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html#data-models-for-security-components-alchemiscale-security-models">Data models for security components — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.security.models</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Data models for storage components — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.storage.models</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.ComputeKey"><code class="docutils literal notranslate"><span class="pre">ComputeKey</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.ComputeServiceID"><code class="docutils literal notranslate"><span class="pre">ComputeServiceID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.ComputeServiceRegistration"><code class="docutils literal notranslate"><span class="pre">ComputeServiceRegistration</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.ObjectStoreRef"><code class="docutils literal notranslate"><span class="pre">ObjectStoreRef</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.ProtocolDAGResultRef"><code class="docutils literal notranslate"><span class="pre">ProtocolDAGResultRef</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.storage.models.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a><ul>
@@ -114,6 +114,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.delete_network"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.delete_network()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.delete_task"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.delete_task()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.delete_taskhub"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.delete_taskhub()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.deregister_computeservice"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.deregister_computeservice()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.expire_registrations"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.expire_registrations()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_credentialed_entity"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_credentialed_entity()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_task_status"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_task_status()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_task_transformation"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_task_transformation()</span></code></a></li>
@@ -122,6 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_taskhub_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_taskhub_tasks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_taskhub_unclaimed_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_taskhub_unclaimed_tasks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.get_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.get_tasks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.heartbeat_computeservice"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.heartbeat_computeservice()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.initialize"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.initialize()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.list_credentialed_entities"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.list_credentialed_entities()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.list_scopes"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.list_scopes()</span></code></a></li>
@@ -129,6 +132,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.query_networks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.query_networks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.query_taskhubs"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.query_taskhubs()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.query_transformations"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.query_transformations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.register_computeservice"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.register_computeservice()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.remove_credentialed_identity"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.remove_credentialed_identity()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.remove_scope"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.remove_scope()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.reset"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.reset()</span></code></a></li>
@@ -142,6 +146,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.set_task_status"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.set_task_status()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.set_task_waiting"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.set_task_waiting()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.set_task_weights"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.set_task_weights()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.set_taskhub_weight"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.set_taskhub_weight()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.set_tasks"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.set_tasks()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alchemiscale.storage.statestore.Neo4jStore.transaction"><code class="docutils literal notranslate"><span class="pre">Neo4jStore.transaction()</span></code></a></li>
 </ul>
@@ -198,10 +203,16 @@
 <h1>Data models for storage components — <a class="reference internal" href="#module-alchemiscale.storage.models" title="alchemiscale.storage.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.storage.models</span></code></a><a class="headerlink" href="#data-models-for-storage-components-alchemiscale-storage-models" title="Permalink to this heading">¶</a></h1>
 </section>
 <dl class="py class">
-<dt class="sig sig-object py" id="alchemiscale.storage.models.ComputeKey">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.models.</span></span><span class="sig-name descname"><span class="pre">ComputeKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.models.ComputeKey" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="alchemiscale.storage.models.ComputeServiceID">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.models.</span></span><span class="sig-name descname"><span class="pre">ComputeServiceID</span></span><a class="headerlink" href="#alchemiscale.storage.models.ComputeServiceID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="alchemiscale.storage.models.ComputeServiceRegistration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alchemiscale.storage.models.</span></span><span class="sig-name descname"><span class="pre">ComputeServiceRegistration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.ComputeServiceID" title="alchemiscale.storage.models.ComputeServiceID"><span class="pre">ComputeServiceID</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">registered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heartbeat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.models.ComputeServiceRegistration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
-<p>Unique identifier for AlchemiscaleComputeService instances.</p>
+<p>Registration for AlchemiscaleComputeService instances.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -471,7 +482,7 @@ If no check fails, will return without any exception.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.claim_taskhub_tasks">
-<span class="sig-name descname"><span class="pre">claim_taskhub_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskhub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">claimant</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.claim_taskhub_tasks" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">claim_taskhub_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskhub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_service_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.ComputeServiceID" title="alchemiscale.storage.models.ComputeServiceID"><span class="pre">ComputeServiceID</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.claim_taskhub_tasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Claim a TaskHub Task.</p>
 <p>This method will claim Tasks from a TaskHub according to the following process:
 1. <cite>waiting</cite> Tasks with the highest priority are selected for consideration.
@@ -488,7 +499,7 @@ If no Task is available, then <cite>None</cite> is given in its place.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>claimant</strong> – Unique identifier for the entity claiming the Tasks for execution.</p></li>
+<li><p><strong>compute_service_id</strong> – Unique identifier for the compute service claiming the Tasks for execution.</p></li>
 <li><p><strong>count</strong> – Claim the given number of Tasks in a single transaction.</p></li>
 </ul>
 </dd>
@@ -561,6 +572,23 @@ instead have their tasks set to ‘deleted’ and retained.</p>
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.delete_taskhub">
 <span class="sig-name descname"><span class="pre">delete_taskhub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.delete_taskhub" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete a TaskHub for a given AlchemicalNetwork.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.deregister_computeservice">
+<span class="sig-name descname"><span class="pre">deregister_computeservice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compute_service_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.ComputeServiceID" title="alchemiscale.storage.models.ComputeServiceID"><span class="pre">ComputeServiceID</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.deregister_computeservice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the registration for the given ComputeServiceID from the
+state store.</p>
+<p>This wil remove the ComputeServiceRegistration node, and all its CLAIMS
+relationships to Tasks.</p>
+<p>All Tasks with CLAIMS relationships to the ComputeServiceRegistration
+and with status <cite>running</cite> will have their status set to <cite>waiting</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.expire_registrations">
+<span class="sig-name descname"><span class="pre">expire_registrations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expire_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.expire_registrations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all registrations with last heartbeat prior to the given <cite>expire_time</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -660,6 +688,12 @@ the Task ScopedKey it extends (as values).</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.heartbeat_computeservice">
+<span class="sig-name descname"><span class="pre">heartbeat_computeservice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compute_service_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.ComputeServiceID" title="alchemiscale.storage.models.ComputeServiceID"><span class="pre">ComputeServiceID</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">heartbeat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.heartbeat_computeservice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the heartbeat for the given ComputeServiceID.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.initialize">
 <span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.initialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize database.</p>
@@ -707,6 +741,15 @@ instances as values. Otherwise, return a list of <a href="#id9"><span class="pro
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.query_transformations">
 <span class="sig-name descname"><span class="pre">query_transformations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">~alchemiscale.models.Scope</span> <span class="pre">=</span> <span class="pre">&lt;Scope('*-*-*')&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chemical_systems=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.query_transformations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query for <a href="#id11"><span class="problematic" id="id12">`</span></a>Transformation`s matching given attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.register_computeservice">
+<span class="sig-name descname"><span class="pre">register_computeservice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compute_service_registration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.ComputeServiceRegistration" title="alchemiscale.storage.models.ComputeServiceRegistration"><span class="pre">ComputeServiceRegistration</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.register_computeservice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a ComputeServiceRegistration uniquely identifying a running
+ComputeService.</p>
+<p>A ComputeServiceRegistration node is used for CLAIMS relationships on
+Tasks to avoid collisions in Task execution.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -839,6 +882,13 @@ or the Task doesn’t exist at all</p>
 <dd class="field-odd"><p>List[<a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey">ScopedKey</a>, None]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.set_taskhub_weight">
+<span class="sig-name descname"><span class="pre">set_taskhub_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.set_taskhub_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the weight for the TaskHub associated with the given
+AlchemicalNetwork.</p>
 </dd></dl>
 
 <dl class="py method">

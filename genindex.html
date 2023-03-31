@@ -237,8 +237,6 @@
 </li>
       <li><a href="documentation_pages/compute.html#alchemiscale.compute.client.AlchemiscaleComputeClientError">AlchemiscaleComputeClientError</a>
 </li>
-      <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.AlchemiscaleComputeService">AlchemiscaleComputeService (class in alchemiscale.compute.service)</a>
-</li>
       <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.AlchemiscaleStateStore">AlchemiscaleStateStore (class in alchemiscale.storage.statestore)</a>
 </li>
       <li><a href="documentation_pages/cli.html#alchemiscale.cli.ApiApplication">ApiApplication (class in alchemiscale.cli)</a>
@@ -256,6 +254,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="documentation_pages/settings.html#alchemiscale.settings.BaseAPISettings">BaseAPISettings (class in alchemiscale.settings)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.SynchronousComputeService.beat">beat() (alchemiscale.compute.service.SynchronousComputeService method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -285,11 +287,15 @@
         <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.claim_taskhub_tasks">(alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
       </ul></li>
+      <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.SynchronousComputeService.claim_tasks">claim_tasks() (alchemiscale.compute.service.SynchronousComputeService method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="documentation_pages/settings.html#alchemiscale.settings.ComputeAPISettings">ComputeAPISettings (class in alchemiscale.settings)</a>
 </li>
-      <li><a href="documentation_pages/storage.html#alchemiscale.storage.models.ComputeKey">ComputeKey (class in alchemiscale.storage.models)</a>
+      <li><a href="documentation_pages/storage.html#alchemiscale.storage.models.ComputeServiceID">ComputeServiceID (class in alchemiscale.storage.models)</a>
+</li>
+      <li><a href="documentation_pages/storage.html#alchemiscale.storage.models.ComputeServiceRegistration">ComputeServiceRegistration (class in alchemiscale.storage.models)</a>
 </li>
       <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.create_credentialed_entity">create_credentialed_entity() (alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
@@ -321,6 +327,8 @@
 </li>
       <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.delete_taskhub">delete_taskhub() (alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
+      <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.deregister_computeservice">deregister_computeservice() (alchemiscale.storage.statestore.Neo4jStore method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -332,6 +340,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.SynchronousComputeService.execute">execute() (alchemiscale.compute.service.SynchronousComputeService method)</a>
+</li>
+      <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.expire_registrations">expire_registrations() (alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -375,11 +385,9 @@
 </li>
       <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.get_taskhub_unclaimed_tasks">get_taskhub_unclaimed_tasks() (alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
-      <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.SynchronousComputeService.get_tasks">get_tasks() (alchemiscale.compute.service.SynchronousComputeService method)</a>
+      <li><a href="documentation_pages/interface.html#alchemiscale.interface.client.AlchemiscaleClient.get_tasks">get_tasks() (alchemiscale.interface.client.AlchemiscaleClient method)</a>
 
       <ul>
-        <li><a href="documentation_pages/interface.html#alchemiscale.interface.client.AlchemiscaleClient.get_tasks">(alchemiscale.interface.client.AlchemiscaleClient method)</a>
-</li>
         <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.get_tasks">(alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
       </ul></li>
@@ -396,6 +404,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.SynchronousComputeService.heartbeat">heartbeat() (alchemiscale.compute.service.SynchronousComputeService method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.heartbeat_computeservice">heartbeat_computeservice() (alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -556,12 +568,14 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.remove_credentialed_identity">remove_credentialed_identity() (alchemiscale.storage.statestore.Neo4jStore method)</a>
+      <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.register_computeservice">register_computeservice() (alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
-      <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.remove_scope">remove_scope() (alchemiscale.storage.statestore.Neo4jStore method)</a>
+      <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.remove_credentialed_identity">remove_credentialed_identity() (alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.remove_scope">remove_scope() (alchemiscale.storage.statestore.Neo4jStore method)</a>
+</li>
       <li><a href="documentation_pages/storage.html#alchemiscale.storage.objectstore.S3ObjectStore.reset">reset() (alchemiscale.storage.objectstore.S3ObjectStore method)</a>
 
       <ul>
@@ -608,17 +622,17 @@
 </li>
       <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.set_task_weights">set_task_weights() (alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
+      <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.set_taskhub_weight">set_taskhub_weight() (alchemiscale.storage.statestore.Neo4jStore method)</a>
+</li>
       <li><a href="documentation_pages/storage.html#alchemiscale.storage.statestore.Neo4jStore.set_tasks">set_tasks() (alchemiscale.storage.statestore.Neo4jStore method)</a>
 </li>
       <li><a href="documentation_pages/interface.html#alchemiscale.interface.client.AlchemiscaleClient.set_tasks_status">set_tasks_status() (alchemiscale.interface.client.AlchemiscaleClient method)</a>
 </li>
       <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.SleepInterrupted">SleepInterrupted</a>
 </li>
-      <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.AlchemiscaleComputeService.start">start() (alchemiscale.compute.service.AlchemiscaleComputeService method)</a>
+      <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.AsynchronousComputeService.start">start() (alchemiscale.compute.service.AsynchronousComputeService method)</a>
 
       <ul>
-        <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.AsynchronousComputeService.start">(alchemiscale.compute.service.AsynchronousComputeService method)</a>
-</li>
         <li><a href="documentation_pages/compute.html#alchemiscale.compute.service.SynchronousComputeService.start">(alchemiscale.compute.service.SynchronousComputeService method)</a>
 </li>
       </ul></li>
