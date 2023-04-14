@@ -89,10 +89,6 @@
 <li class="toctree-l2"><a class="reference internal" href="strategies.html#alchemiscale.strategies.base.Strategy"><code class="docutils literal notranslate"><span class="pre">Strategy</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="strategist.html">Strategist service. — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.strategist.service</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Command line interface — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.cli</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#alchemiscale.cli.ApiApplication"><code class="docutils literal notranslate"><span class="pre">ApiApplication</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#alchemiscale.cli.ApiApplication.load_config"><code class="docutils literal notranslate"><span class="pre">ApiApplication.load_config()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.cli.envvar_dictify"><code class="docutils literal notranslate"><span class="pre">envvar_dictify()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#alchemiscale.cli.get_settings_from_options"><code class="docutils literal notranslate"><span class="pre">get_settings_from_options()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html">Data models — <code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.models</span></code></a></li>
@@ -138,20 +134,6 @@
   <span class="target" id="module-alchemiscale.cli"></span><section id="command-line-interface-alchemiscale-cli">
 <h1>Command line interface — <a class="reference internal" href="#module-alchemiscale.cli" title="alchemiscale.cli"><code class="xref py py-mod docutils literal notranslate"><span class="pre">alchemiscale.cli</span></code></a><a class="headerlink" href="#command-line-interface-alchemiscale-cli" title="Permalink to this heading">¶</a></h1>
 </section>
-<dl class="py class">
-<dt class="sig sig-object py" id="alchemiscale.cli.ApiApplication">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">alchemiscale.cli.</span></span><span class="sig-name descname"><span class="pre">ApiApplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.cli.ApiApplication" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseApplication</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="alchemiscale.cli.ApiApplication.load_config">
-<span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.cli.ApiApplication.load_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method is used to load the configuration from one or several input(s).
-Custom Command line, configuration file.
-You have to override this method in your class.</p>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="alchemiscale.cli.envvar_dictify">
 <span class="sig-prename descclassname"><span class="pre">alchemiscale.cli.</span></span><span class="sig-name descname"><span class="pre">envvar_dictify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.cli.envvar_dictify" title="Permalink to this definition">¶</a></dt>
