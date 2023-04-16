@@ -17,7 +17,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="protocols.html" />
+    <link rel="next" title="Security components for APIs. — alchemiscale.security.auth" href="security.html" />
     <link rel="prev" title="AlchemiscaleComputeAPI — alchemiscale.compute.api" href="compute.html" /> 
 </head>
 
@@ -278,10 +278,10 @@ gufe object and a Scope.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.get_tasks_status">
 <span class="sig-name descname"><span class="pre">get_tasks_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="storage.html#alchemiscale.storage.models.TaskStatusEnum" title="alchemiscale.storage.models.TaskStatusEnum"><span class="pre">TaskStatusEnum</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.get_tasks_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the status of one or multiple <a href="#id1"><span class="problematic" id="id2">`</span></a>Task`s.</p>
+<dd><p>Get the status of one or multiple <cite>Task</cite>s.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>tasks</strong> (<em>Union</em><em>[</em><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><em>ScopedKey</em></a><em>, </em><em>List</em><em>[</em><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><em>ScopedKey</em></a><em>]</em><em>]</em>) – The <cite>Task</cite> or <a href="#id3"><span class="problematic" id="id4">`</span></a>Task`s to get the status of.</p>
+<dd class="field-odd"><p><strong>tasks</strong> (<em>Union</em><em>[</em><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><em>ScopedKey</em></a><em>, </em><em>List</em><em>[</em><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><em>ScopedKey</em></a><em>]</em><em>]</em>) – The <cite>Task</cite> or <cite>Task</cite>s to get the status of.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The status of each <cite>Task</cite> in the same order as given in <cite>tasks</cite>. If
@@ -296,7 +296,7 @@ a given <cite>Task</cite> doesn’t exist, <cite>None</cite> will be returned in
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.get_transformation_failures">
 <span class="sig-name descname"><span class="pre">get_transformation_failures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ProtocolResult</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ProtocolDAGResult</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.get_transformation_failures" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get failed <cite>ProtocolDAGResult`s for the given `Transformation</cite>.</p>
+<dd><p>Get failed <cite>ProtocolDAGResult</cite>s for the given <cite>Transformation</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>transformation</strong> – The <cite>ScopedKey</cite> of the <cite>Transformation</cite> to retrieve failures for.</p>
@@ -313,7 +313,7 @@ a given <cite>Task</cite> doesn’t exist, <cite>None</cite> will be returned in
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>transformation</strong> – The <cite>ScopedKey</cite> of the <cite>Transformation</cite> to retrieve results for.</p></li>
 <li><p><strong>return_protocoldagresults</strong> – If <cite>True</cite>, return the raw <cite>ProtocolDAGResult`s instead of returning
-a processed `ProtocolResult</cite>. Only successful <a href="#id5"><span class="problematic" id="id6">`</span></a>ProtocolDAGResult`s
+a processed `ProtocolResult</cite>. Only successful <cite>ProtocolDAGResult</cite>s
 are returned.</p></li>
 </ul>
 </dd>
@@ -368,20 +368,20 @@ Transformations in the AlchemicalNetwork without user interaction.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.interface.client.AlchemiscaleClient.set_tasks_status">
 <span class="sig-name descname"><span class="pre">set_tasks_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="storage.html#alchemiscale.storage.models.TaskStatusEnum" title="alchemiscale.storage.models.TaskStatusEnum"><span class="pre">TaskStatusEnum</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.interface.client.AlchemiscaleClient.set_tasks_status" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the status of one or multiple <a href="#id7"><span class="problematic" id="id8">`</span></a>Task`s.</p>
+<dd><p>Set the status of one or multiple <cite>Task</cite>s.</p>
 <p>Task status can be set to ‘waiting’ if currently ‘error’.
 Status can be set to ‘invalid’ or ‘deleted’ from any other status.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>tasks</strong> (<em>Union</em><em>[</em><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><em>ScopedKey</em></a><em>, </em><em>List</em><em>[</em><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><em>ScopedKey</em></a><em>]</em><em>]</em>) – The <cite>Task</cite> or <a href="#id9"><span class="problematic" id="id10">`</span></a>Task`s to set the status of.</p></li>
-<li><p><strong>status</strong> (<a class="reference internal" href="storage.html#alchemiscale.storage.models.TaskStatusEnum" title="alchemiscale.storage.models.TaskStatusEnum"><em>TaskStatusEnum</em></a>) – The status to set the <a href="#id11"><span class="problematic" id="id12">`</span></a>Task`s to. Can be one of
+<li><p><strong>tasks</strong> (<em>Union</em><em>[</em><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><em>ScopedKey</em></a><em>, </em><em>List</em><em>[</em><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><em>ScopedKey</em></a><em>]</em><em>]</em>) – The <cite>Task</cite> or <cite>Task</cite>s to set the status of.</p></li>
+<li><p><strong>status</strong> (<a class="reference internal" href="storage.html#alchemiscale.storage.models.TaskStatusEnum" title="alchemiscale.storage.models.TaskStatusEnum"><em>TaskStatusEnum</em></a>) – The status to set the <cite>Task</cite>s to. Can be one of
 ‘waiting’, ‘invalid’, or ‘deleted’.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The ScopedKeys of the <cite>Task`s that were updated, in the same order
-as given in `tasks</cite>. If a given <cite>Task</cite> doesn’t exist, <cite>None</cite> will
+<dd class="field-even"><p>The ScopedKeys of the <cite>Task</cite>s that were updated, in the same order
+as given in <cite>tasks</cite>. If a given <cite>Task</cite> doesn’t exist, <cite>None</cite> will
 be returned in its place.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -404,7 +404,7 @@ be returned in its place.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="compute.html" class="btn btn-neutral float-left" title="AlchemiscaleComputeAPI — alchemiscale.compute.api" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="protocols.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="security.html" class="btn btn-neutral float-right" title="Security components for APIs. — alchemiscale.security.auth" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

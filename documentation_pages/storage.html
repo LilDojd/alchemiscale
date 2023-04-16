@@ -483,13 +483,11 @@ If no check fails, will return without any exception.</p>
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.claim_taskhub_tasks">
 <span class="sig-name descname"><span class="pre">claim_taskhub_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskhub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_service_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#alchemiscale.storage.models.ComputeServiceID" title="alchemiscale.storage.models.ComputeServiceID"><span class="pre">ComputeServiceID</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.claim_taskhub_tasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Claim a TaskHub Task.</p>
-<p>This method will claim Tasks from a TaskHub according to the following process:
-1. <cite>waiting</cite> Tasks with the highest priority are selected for consideration.
-2. Tasks with an <cite>EXTENDS</cite> relationship to an incomplete Task are dropped</p>
-<blockquote>
-<div><p>from consideration.</p>
-</div></blockquote>
-<ol class="arabic simple" start="3">
+<p>This method will claim Tasks from a TaskHub according to the following process:</p>
+<ol class="arabic simple">
+<li><p><cite>waiting</cite> Tasks with the highest priority are selected for consideration.</p></li>
+<li><p>Tasks with an <cite>EXTENDS</cite> relationship to an incomplete Task are dropped
+from consideration.</p></li>
 <li><p>Of those that remain, a Task is claimed stochastically based on the
 <cite>weight</cite> of its ACTIONS relationship with the TaskHub.</p></li>
 </ol>
@@ -553,8 +551,8 @@ either way.</p>
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.delete_network">
 <span class="sig-name descname"><span class="pre">delete_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.delete_network" title="Permalink to this definition">¶</a></dt>
 <dd><p>Delete the given <cite>AlchemicalNetwork</cite> from the database.</p>
-<p>This will not remove any <cite>Transformation`s or `ChemicalSystem`s
-associated with the `AlchemicalNetwork</cite>, since these may be associated
+<p>This will not remove any <cite>Transformation</cite>s or <cite>ChemicalSystem</cite>s
+associated with the <cite>AlchemicalNetwork</cite>, since these may be associated
 with other <cite>AlchemicalNetwork`s in the same `Scope</cite>.</p>
 </dd></dl>
 
@@ -620,7 +618,7 @@ and with status <cite>running</cite> will have their status set to <cite>waiting
 present) for the given <cite>Task</cite>.</p>
 <p>If <cite>return_gufe</cite> is <cite>True</cite>, returns actual <cite>Transformation</cite> and
 <cite>ProtocolDAGResultRef</cite> object (<cite>None</cite> if not present); if <cite>False</cite>, returns
-<a href="#id1"><span class="problematic" id="id2">`</span></a>ScopedKey`s for these instead.</p>
+<cite>ScopedKey</cite>s for these instead.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -715,23 +713,23 @@ Should be used on any Neo4j database prior to use for Alchemiscale.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.query_chemicalsystems">
 <span class="sig-name descname"><span class="pre">query_chemicalsystems</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">~alchemiscale.models.Scope</span> <span class="pre">=</span> <span class="pre">&lt;Scope('*-*-*')&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformations=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.query_chemicalsystems" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query for <a href="#id3"><span class="problematic" id="id4">`</span></a>ChemicalSystem`s matching given attributes.</p>
+<dd><p>Query for <cite>ChemicalSystem</cite>s matching given attributes.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.query_networks">
 <span class="sig-name descname"><span class="pre">query_networks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">~alchemiscale.models.Scope</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;Scope('*-*-*')&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.query_networks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query for <a href="#id5"><span class="problematic" id="id6">`</span></a>AlchemicalNetwork`s matching given attributes.</p>
+<dd><p>Query for <cite>AlchemicalNetwork</cite>s matching given attributes.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.query_taskhubs">
 <span class="sig-name descname"><span class="pre">query_taskhubs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">~alchemiscale.models.Scope</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;Scope('*-*-*')&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_gufe:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.html#alchemiscale.models.ScopedKey" title="alchemiscale.models.ScopedKey"><span class="pre">ScopedKey</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#alchemiscale.storage.models.TaskHub" title="alchemiscale.storage.models.TaskHub"><span class="pre">TaskHub</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.query_taskhubs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query for <a href="#id7"><span class="problematic" id="id8">`</span></a>TaskHub`s matching the given criteria.</p>
+<dd><p>Query for <cite>TaskHub</cite>s matching the given criteria.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>return_gufe</strong> – If True, return a dict with <cite>ScopedKey`s as keys, `TaskHub</cite>
-instances as values. Otherwise, return a list of <a href="#id9"><span class="problematic" id="id10">`</span></a>ScopedKey`s.</p>
+instances as values. Otherwise, return a list of <cite>ScopedKey</cite>s.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -739,7 +737,7 @@ instances as values. Otherwise, return a list of <a href="#id9"><span class="pro
 <dl class="py method">
 <dt class="sig sig-object py" id="alchemiscale.storage.statestore.Neo4jStore.query_transformations">
 <span class="sig-name descname"><span class="pre">query_transformations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scope:</span> <span class="pre">~alchemiscale.models.Scope</span> <span class="pre">=</span> <span class="pre">&lt;Scope('*-*-*')&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chemical_systems=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alchemiscale.storage.statestore.Neo4jStore.query_transformations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query for <a href="#id11"><span class="problematic" id="id12">`</span></a>Transformation`s matching given attributes.</p>
+<dd><p>Query for <cite>Transformation</cite>s matching given attributes.</p>
 </dd></dl>
 
 <dl class="py method">
