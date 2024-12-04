@@ -1,7 +1,7 @@
 from py2neo import Node, Subgraph, Relationship, UniquenessError
 
-from py2neo.cypher import cypher_join
 from alchemiscale.storage.cypher import (
+    cypher_join,
     unwind_create_nodes_query,
     unwind_merge_nodes_query,
     unwind_merge_relationships_query,
