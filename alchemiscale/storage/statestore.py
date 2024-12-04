@@ -9,7 +9,6 @@ from datetime import datetime
 from contextlib import contextmanager
 import json
 from functools import lru_cache
-from operator import ne
 from typing import Dict, List, Optional, Union, Tuple
 import weakref
 import numpy as np
@@ -38,7 +37,7 @@ from .models import (
 )
 from ..strategies import Strategy
 from ..models import Scope, ScopedKey
-from .cypher import cypher_list_from_scoped_keys, cypher_or
+from .cypher import cypher_or
 
 from ..security.models import CredentialedEntity
 from ..settings import Neo4jStoreSettings

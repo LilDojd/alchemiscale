@@ -25,11 +25,14 @@ from __future__ import absolute_import
 
 from collections import OrderedDict
 from re import compile as re_compile
+from typing import Any
 from unicodedata import category
 
 from interchange.collections import SetView
+from py2neo.data import Node, Relationship, Path
 
-from .types import uchr, ustr, numeric_types, string_types, unicode_types
+
+from ._types import uchr, ustr, numeric_types, string_types, unicode_types
 
 
 ID_START = {"_"} | {
@@ -192,7 +195,6 @@ class CypherEncoder(object):
 
     def encode_value(self, value):
         from .cypher import CypherExpression
-        from py2neo.data import Node, Relationship, Path
         from interchange.time import Date, Time, DateTime, Duration
 
         if value is None:
@@ -230,7 +232,7 @@ class CypherEncoder(object):
             % (type(value).__module__, type(value).__name__)
         )
 
-    def encode_string(self, value):
+    def encode_string(self, value: str | bytes | bytearray) -> str:
         value = ustr(value)
 
         quote = self.quote
@@ -263,10 +265,10 @@ class CypherEncoder(object):
             )
         return quote + "".join(parts) + quote
 
-    def encode_list(self, values):
+    def encode_list(self, values: list[Any]) -> str:
         return "[" + self.sequence_separator.join(map(self.encode_value, values)) + "]"
 
-    def encode_map(self, values):
+    def encode_map(self, values: dict[Any, Any]) -> str:
         return (
             "{"
             + self.sequence_separator.join(
@@ -278,10 +280,10 @@ class CypherEncoder(object):
             + "}"
         )
 
-    def encode_node(self, node):
+    def encode_node(self, node: Node):
         return self._encode_node(node, self.node_template)
 
-    def encode_relationship(self, relationship):
+    def encode_relationship(self, relationship: Relationship) -> str:
         nodes = relationship.nodes
         return "{}-{}->{}".format(
             self._encode_node(nodes[0], self.related_node_template),
@@ -289,7 +291,7 @@ class CypherEncoder(object):
             self._encode_node(nodes[-1], self.related_node_template),
         )
 
-    def encode_path(self, path):
+    def encode_path(self, path: Path) -> str:
         encoded = []
         append = encoded.append
         nodes = path.nodes
@@ -319,7 +321,7 @@ class CypherEncoder(object):
     def _node_id(cls, node):
         return node.identity if hasattr(node, "identity") else node
 
-    def _encode_node(self, node, template):
+    def _encode_node(self, node: Node, template: str) -> str:
         return (
             "("
             + template.format(
@@ -336,7 +338,9 @@ class CypherEncoder(object):
             + ")"
         )
 
-    def _encode_relationship_detail(self, relationship, template):
+    def _encode_relationship_detail(
+        self, relationship: Relationship, template: str
+    ) -> str:
         return (
             "["
             + template.format(

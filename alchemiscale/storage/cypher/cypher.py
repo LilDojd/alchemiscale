@@ -1,7 +1,7 @@
 from alchemiscale import ScopedKey
 from typing import List, Optional
 from .encoding import CypherEncoder
-from .types import string_types
+from ._types import string_types
 
 
 def cypher_list_from_scoped_keys(scoped_keys: List[Optional[ScopedKey]]) -> str:
